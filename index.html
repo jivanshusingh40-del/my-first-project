@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Platform</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h1>welcome to Pet Adoption Platform</h1>
+    <p>Give a loving home to a pet</p>
+
+    <h2>Available pets</h2>
+
+    <div class="pet-card">
+    <h3>Bruno</h3>
+    <img src="burno.jpg" alt="Bruno the dog" class="pet-image"
+    <p>Type:Dog</p>
+    <p>Age:2 years</p>
+    <button onclick="adoptpet('Bruno')">Adopt Bruno</button>
+    </div>
+
+    <div class="pet-card">
+    <img src="kitty.jpg" alt="kitty the cat" class="pet-image"
+    <h3>Kitty</h3>
+    <p>Type:Cat</p>
+    <p>Age:1 years</p>
+    <button onclick="adoptpet('Kitty')">Adopt Kitty</button>
+    </div>
+    <h2>About Us</h2>
+    <p>We help pets find loving homes.</p>
+
+    <h2>Contact Us</h2>
+    <p>Email:petadoption@example.com</p>
+    <h2>Adoption Form</h2>
+
+    <form onsubmit="submitApplication(event)">
+        <label>Your Name:</label>
+        <input type="text" placeholder="Enter your name" required>
+        
+        <br><br>
+
+        <label>Your Email:</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <br><br>
+
+        <label>Select pet:</label>
+
+        <select required>
+            <option value="">Choose a pet</option>
+            <option value="Bruno">Bruno (Dog)</option>
+            <option value="Kitty">Kitty (Cat)</option>
+        </select>
+
+        <br><br>
+
+        <button type="Submit">Submit Application</button>
+        
+
+    </form>
+    <p id="success-message"></p>
+    <script>
+        function adoptpet(petName){
+            alert("Thank you for adopting"+petName+"!")
+        }
+
+        function submitApplication(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const pet = form.querySelector("select").value;
+
+    document.getElementById("success-message").textContent =
+        "Thank you! Your application to adopt " + pet + " has been submitted!";
+
+    form.reset();
+}
+    </script>
+
+
+</body>
+</html>
